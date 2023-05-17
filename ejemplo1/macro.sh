@@ -10,5 +10,16 @@ javac ./simple/*.java
 sleep 2
 echo
 echo "Lanzando el servidor"
-java -cp . -Djava.rmi.server.codebase=file:./simple/ -Djava.rmi.server.hostname=localhost -Djava.security.policy=./simple/server.policy simple.Ejemplo
+java -cp . -Djava.rmi.server.codebase=file:./simple/ -Djava.rmi.server.hostname=localhost -Djava.security.policy=./simple/server.policy simple.Ejemplo &
 sleep 2
+echo
+echo "Lanzando el primer cliente"
+echo
+java -cp . -Djava.security.policy=./simple/server.policy simple.Cliente_Ejemplo localhost 0
+sleep 2
+echo
+echo "Lanzando el segundo cliente"
+echo
+java -cp . -Djava.security.policy=./simple/server.policy simple.Cliente_Ejemplo localhost 3
+pkill java
+pkill rmiregistry

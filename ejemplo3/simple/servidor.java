@@ -22,6 +22,7 @@ Naming.rebind("mmicontador", micontador);
 System.out.println("Servidor RemoteException | MalformedURLExceptiondor preparado");
 } catch (RemoteException | MalformedURLException e) {
 System.out.println("Exception: " + e.getMessage());
+e.getStackTrace();
 }
 }
 }

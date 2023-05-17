@@ -29,11 +29,12 @@ public class Cliente {
                 + "R: Registro\n"
                 + "D: Donar\n"
                 + "C: Consultar total donado\n"
+				+ "P: Consultar ranking\n"
                 + "S: Salir\n");
 				respuesta = cin.next();
 				char aux=respuesta.charAt(0);
 
-				if ( (aux!='R') && (aux!='D') && (aux!='C') && (aux!='S') )
+				if ( (aux!='R') && (aux!='D') && (aux!='C') && (aux!='S') && (aux!='P') )
 					System.out.println ("Opción no válida");
 				else {
 					String mens="";
@@ -59,6 +60,10 @@ public class Cliente {
 							else
 								System.out.print("Registrese por favor");
 							
+						break;
+
+						case "P":
+							System.out.print(instancia_local.consulta_Ranking());
 						break;
 
 						case "S":
